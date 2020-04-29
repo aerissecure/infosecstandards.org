@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPostTemplate = ({
+export const ServicePageTemplate = ({
   content,
   contentComponent,
   description,
@@ -46,7 +46,7 @@ export const BlogPostTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
+ServicePageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -54,38 +54,38 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+const ServicePage = ({ data }) => {
+  const { markdownRemark: page } = data
 
   return (
     <Layout>
-      <BlogPostTemplate
-        content={post.html}
+      <ServicePageTemplate
+        content={page.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={page.frontmatter.description}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
+            <title>{`${page.frontmatter.title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${page.frontmatter.description}`}
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        tags={page.frontmatter.tags}
+        title={page.frontmatter.title}
       />
     </Layout>
   )
 }
 
-BlogPost.propTypes = {
+ServicePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default BlogPost
+export default ServicePage
 
 export const pageQuery = graphql`
   query ServicePageByID($id: String!) {
