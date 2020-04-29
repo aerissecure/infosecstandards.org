@@ -12,21 +12,67 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: "news"
+    label: "News"
+    folder: "src/pages/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Tagline", name: "tagline", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - label: "Standard"
+        name: "standard"
+        widget: "relation"
+        collection: "standards"
+        searchFields: ["title", "description", "body"]
+        valueField: "title"
+        displayFields: ["title"]
+      - label: "Service"
+        name: "service"
+        widget: "relation"
+        collection: "services"
+        searchFields: ["title", "description", "body"]
+        valueField: "title"
+        displayFields: ["title"]
+
+  - name: "standards"
+    label: "Standards"
+    folder: "src/pages/standards"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "standard-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: image}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
+
+  - name: "services"
+    label: "Services"
+    folder: "src/pages/services"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: image}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - label: "Standard"
+        name: "standard"
+        widget: "relation"
+        collection: "standards"
+        searchFields: ["title", "description", "body"]
+        valueField: "title"
+        displayFields: ["title"]
 
   - name: "pages"
     label: "Pages"
