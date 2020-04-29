@@ -1,7 +1,7 @@
 ---
 templateKey: standard-page
 title: NIST Cybersecurity Framework
-description: tbd
+description: now we have a description
 image: /img/apple-touch-icon.png
 tags:
   - nist
