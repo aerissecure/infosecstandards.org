@@ -73,6 +73,14 @@ collections:
         searchFields: ["title", "description", "body"]
         valueField: "title"
         displayFields: ["title"]
+      - label: "Related Services"
+        name: "relatedservices"
+        widget: "relation"
+        collection: "services"
+        searchFields: ["title", "description", "body"]
+        valueField: "title"
+        displayFields: ["title"]
+        multiple: true
 
   - name: "pages"
     label: "Pages"
