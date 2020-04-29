@@ -53,6 +53,15 @@ collections:
       - {label: "Image", name: "image", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - label: "Related Standards"
+        name: "relatedstandards"
+        widget: "relation"
+        collection: "standards"
+        searchFields: ["title", "description", "body"]
+        valueField: "title"
+        displayFields: ["title"]
+        multiple: true
+        required: false
 
   - name: "services"
     label: "Services"
@@ -81,6 +90,7 @@ collections:
         valueField: "title"
         displayFields: ["title"]
         multiple: true
+        required: false
 
   - name: "pages"
     label: "Pages"
